@@ -45,10 +45,11 @@
                     <a th:href="@{'/view/' + ${job.id}}" th:text="${job.id}"></a>
                 </p>
                 <p th:text="${'Name: ' + job.name}"></p>
-                <p>
-                    Employer:
-                    <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>
-                </p>
+                <div th:each="employer : ${employers}">
+                    <p>
+                        Employer: <a th:href="@{'/employers/view/' + ${employer.id}}" th:text="${employer.name}"></a>
+                    </p>
+                </div>
                 <p>
                     Skills:
                     <ul th:each="skill : ${job.skills}">
